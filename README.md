@@ -17,8 +17,10 @@ These are 300 synthetic test spectra evaluated in the manuscript.
 
 "x_test_300_merge_spectra3.npy"---> referes to the input CARS data
 
+## About the trained model weights
+
 ## Getting Started 
-You can use the spyder to test the pretrained network
+You can use the spyder (5.2.2) to test the pretrained network
 
 ## Requirements 
 Required Python environment added here. Better to upload a Docker file.
