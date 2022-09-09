@@ -19,6 +19,12 @@ These are 300 synthetic test spectra evaluated in the manuscript.
 
 ## About the trained model weights
 
+"One_sigmoid_NRB_model_weights.h5" --->referes wiehts of the model trained with One sigmoid NRB
+
+"Polynomial_NRB_model_weights.h5" --->referes wiehts of the model trained with Polynomial_NRB
+
+"Specnet_weights.h5" --->referes wiehts of the model trained with product of two sigmoids NRB
+
 ## Getting Started 
 You can use the spyder (5.2.2) to test the pretrained network
 
