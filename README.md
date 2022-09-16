@@ -26,7 +26,7 @@ These are 300 synthetic test spectra evaluated in the manuscript.
 "Specnet_weights.h5" --->referes wiehts of the model trained with product of two sigmoids NRB
 
 ## Getting Started 
-You can use the spyder (5.2.2) to test the pretrained network
+You can use the Python (TensorFlow 2.7.0) to test the pretrained network
 
 ## Requirements 
 Required Python environment added here. Better to upload a Docker file.
