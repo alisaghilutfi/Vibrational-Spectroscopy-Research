@@ -17,6 +17,12 @@ These are 300 synthetic test spectra evaluated in the manuscript.
 
 "x_test_300_merge_spectra3.npy"---> referes to the input CARS data
 
+## About the code
+
+It cab be acessed from the following program
+
+RSS_Advances_CNN_to_train_with_different_NRBs.py
+
 ## About the trained model weights
 
 "One_sigmoid_NRB_model_weights.h5" --->referes wiehts of the model trained with One sigmoid NRB
