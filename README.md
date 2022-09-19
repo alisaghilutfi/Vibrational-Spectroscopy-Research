@@ -17,9 +17,11 @@ These are 300 synthetic test spectra evaluated in the manuscript.
 
 "x_test_300_merge_spectra3.npy"---> referes to the input CARS data
 
-## About the code
+## About the CNN model code
 
-It cab be acessed from the following program
+The model architecture directly adapted from the SpecNet paper (See https://github.com/Valensicv/SpecNet for the full code of the neural net-work model)
+Here three different NRB are evaluated 
+It can be accessed from the following program.
 
 RSS_Advances_CNN_to_train_with_different_NRBs.py
 
