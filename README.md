@@ -36,8 +36,8 @@ RSS_Advances_CNN_prediction_on_test_data.py
 
 "Specnet_weights.h5" --->referes wiehts of the model trained with product of two sigmoids NRB
 
-## About the experimetal CARS data 
-The data set used in this investigation can be provided by upon the request [Erik M. Vartiainen](https://scholar.google.co.in/citations?user=zbxe2qYAAAAJ&hl=en&oi=ao) 
+## About the experimetal CARS data
+The experimetal CARS data set used in this investigation can only be provided by upon the request [Erik M. Vartiainen](erik.vartiainen@lut.fi) 
 
 ## Getting Started and Requirements 
 You can use the Python (TensorFlow 2.7.0) to test the pretrained network. We have tested it in Spyde
