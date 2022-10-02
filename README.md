@@ -17,6 +17,9 @@ These are 300 synthetic test spectra evaluated in the manuscript.
 
 "x_test_300_merge_spectra3.npy"---> referes to the input CARS data
 
+## About the experimetal CARS data
+The experimetal CARS data set used in this investigation can only be provided by upon the request and can contact [Erik M. Vartiainen](https://research.lut.fi/converis/portal/detail/Person/56843?auxfun=&lang=en_GB) 
+
 ## About the CNN model code
 
 The model architecture directly adapted from the SpecNet paper (See https://github.com/Valensicv/SpecNet for the full code of the neural net-work model)
@@ -35,9 +38,6 @@ RSS_Advances_CNN_prediction_on_test_data.py
 "Polynomial_NRB_model_weights.h5" --->referes wiehts of the model trained with Polynomial_NRB
 
 "Specnet_weights.h5" --->referes wiehts of the model trained with product of two sigmoids NRB
-
-## About the experimetal CARS data
-The experimetal CARS data set used in this investigation can only be provided by upon the request [Erik M. Vartiainen](https://research.lut.fi/converis/portal/detail/Person/56843?auxfun=&lang=en_GB) 
 
 ## Getting Started and Requirements 
 You can use the Python (TensorFlow 2.7.0) to test the pretrained network. We have tested it in Spyde
