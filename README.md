@@ -42,5 +42,5 @@ RSS_Advances_CNN_prediction_on_test_data.py
 ## Getting Started and Requirements 
 You can use Python (TensorFlow 2.7.0) to test the pre-trained network. We have tested it in Spyder.
 
-## Citation
-Formats to cite our paper will be updated soon
+## Article can be found here 
+https://scholar.google.co.in/citations?view_op=view_citation&hl=en&user=BRu_wuAAAAAJ&sortby=pubdate&citation_for_view=BRu_wuAAAAAJ:ULOm3_A8WrAC
