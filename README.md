@@ -16,3 +16,7 @@ In this study, we introduced bidirectional long short-term memory (Bi-LSTM), a p
 ### Project 4: Impact of Non-Resonant Backgrounds on CNN Performance
 This study investigated how the choice of non-resonant background (NRB) during synthetic data generation affects a CNN model's ability to retrieve the Raman signal. We trained separate CNN models using three distinct NRB types: product of two sigmoids, a single sigmoid, and a fourth-order polynomial function. The results showed that the model trained with the Polynomial NRB demonstrated a superior ability to extract the imaginary part of the signal, and the extracted line shapes were in excellent agreement with the ground truth. This project highlights my data engineering skills, specifically my understanding of how data preprocessing and synthesis can critically impact model performance.
 
+## 🔗 Connect
+- Google Scholar: https://scholar.google.com/citations?user=GcWhnFcAAAAJ&hl=en
+- LinkedIn: https://www.linkedin.com/in/ali-saghi-588427117/
+- Email: ali.saghi.2015@gmail.com
