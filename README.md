@@ -1,22 +1,74 @@
-
 # Vibrational Spectroscopy Research: A Deep Learning Approach
-This repository showcases a series of deep learning projects conducted during my PhD in Computational Physics, focused on advancing the analysis of vibrational spectroscopy data, specifically from Coherent anti-Stokes Raman scattering (CARS) microscopy. The work is motivated by the challenge of extracting the pure Raman signal from the CARS spectrum, which is often distorted by a non-resonant background (NRB).
 
-The projects demonstrate my expertise in developing, optimizing, and applying deep learning models—including convolutional neural network (CNN)s and recurrent neural network (RNN)s—to solve complex signal processing and data analysis problems. The methodologies explored offer automated, data-driven solutions that perform comparably to or better than traditional numerical methods, a key step toward automating complex scientific data pipelines.
+This repository documents PhD research conducted at LUT University (Computational Physics) on applying deep learning to automate spectroscopic signal processing — specifically, extracting the pure Raman signal from Coherent anti-Stokes Raman Scattering (CARS) spectra.
 
-### Project 1: Fine-tuning a Pre-trained CNN for Raman Signal Retrieval
-This project focused on transfer learning in a computational physics context. I fine-tuned a pre-trained convolutional neural network (CNN) on two sets of semi-synthetic spectra to improve its ability to retrieve the Raman signal from CARS spectra. The fine-tuned model achieved an 86% prediction accuracy on semi-synthetic data and demonstrated superior performance on experimental spectra compared to the original model. This study highlights my ability to leverage existing models and adapt them for new challenges.
+The core challenge: CARS spectra contain a strong non-resonant background (NRB) that distorts the underlying Raman signal. Traditional retrieval methods require manually tuned parameters and domain expertise. This research replaces that manual process with trained neural networks — CNN, Bi-LSTM, LSTM, and autoencoder architectures — that generalise across experimental conditions.
 
-### Project 2: Hyperparameter Optimization for SpecNet
-This project addresses a critical challenge in model performance: hyperparameter optimization. The goal was to overcome limitations of a known CNN model, SpecNet, which struggled to accurately identify all spectral peaks and their intensities. By optimizing the model's hyperparameters, I developed a refined version that significantly improved peak detection and intensity matching on both synthetic and experimental datasets. This demonstrates my proficiency in fine-tuning models to solve specific, real-world data issues.
+**Key results across the project series:**
+- Fine-tuned CNN achieving **86% prediction accuracy** on semi-synthetic data, with superior performance over the baseline model on experimental spectra
+- Hyperparameter-optimised SpecNet reaching **~96% accuracy**, with mean-squared error **~60× lower** than the unoptimised baseline
+- Bi-LSTM outperforming CNN, LSTM, and VECTOR autoencoder on both synthetic and experimental spectra — the first application of Bi-LSTM to CARS spectroscopy
+- Demonstrated end-to-end ownership: data synthesis, model architecture, training, optimisation, and peer-reviewed publication
 
-### Project 3: Exploring Bi-LSTM for Spectral Signal Extraction
-In this study, we introduced bidirectional long short-term memory (Bi-LSTM), a powerful recurrent neural network, to the field of CARS spectroscopy for the first time. We compared the Bi-LSTM model's performance against three other deep learning architectures: LSTM, CNN, and a very deep convolutional autoencoder (VECTOR). All models were trained on data synthesized with three different types of NRBs. The Bi-LSTM model consistently outperformed the other models in extracting the Raman signal from both synthetic and experimental spectra, showcasing my ability to innovate and apply novel deep learning architectures to complex time-series data.
+**Transferable skills demonstrated:** end-to-end deep learning pipeline design, Bayesian hyperparameter optimisation (Optuna), time-series modelling, scientific data engineering, model comparison and benchmarking, Python/TensorFlow/Keras.
 
-### Project 4: Impact of Non-Resonant Backgrounds on CNN Performance
-This study investigated how the choice of non-resonant background (NRB) during synthetic data generation affects a CNN model's ability to retrieve the Raman signal. We trained separate CNN models using three distinct NRB types: product of two sigmoids, a single sigmoid, and a fourth-order polynomial function. The results showed that the model trained with the Polynomial NRB demonstrated a superior ability to extract the imaginary part of the signal, and the extracted line shapes were in excellent agreement with the ground truth. This project highlights my data engineering skills, specifically my understanding of how data preprocessing and synthesis can critically impact model performance.
+---
 
-## 🔗 Connect
-- Google Scholar: https://scholar.google.com/citations?user=GcWhnFcAAAAJ&hl=en
-- LinkedIn: https://www.linkedin.com/in/ali-saghi-588427117/
-- Email: ali.saghi.2015@gmail.com
+## Projects
+
+### Project 1 — Fine-tuning a Pre-trained CNN for Raman Signal Retrieval
+`Folder: Finetuned_SpecNet`
+
+Applied transfer learning to adapt a pre-trained CNN (SpecNet) to two sets of semi-synthetic CARS spectra. The fine-tuned model achieved **86% prediction accuracy** on semi-synthetic data and outperformed the original model on experimental spectra. Demonstrates the ability to leverage existing architectures and adapt them efficiently to new datasets — a pattern directly applicable to modern ML engineering workflows.
+
+---
+
+### Project 2 — Hyperparameter Optimisation of SpecNet
+`Folder: Hyperparameter_Optimization_of_CNN`
+
+The baseline SpecNet model struggled to accurately identify all spectral peaks and their intensities. Through systematic hyperparameter optimisation, a refined architecture was developed that significantly improved peak detection and intensity matching on both synthetic and experimental datasets. The optimised model reached **~96% accuracy** with mean-squared error approximately **60× lower** than the unoptimised baseline. Demonstrates proficiency in structured model tuning — the same discipline applied in production ML systems.
+
+---
+
+### Project 3 — Four Deep Learning Architectures Compared
+`Folder: Four_DL_models_comparison`
+
+Introduced **bidirectional LSTM (Bi-LSTM)** to CARS spectroscopy for the first time and benchmarked it against three architectures: LSTM, CNN, and a very deep convolutional autoencoder (VECTOR). All models were trained on data synthesised with three NRB types. The Bi-LSTM consistently outperformed the other architectures in Raman signal extraction from both synthetic and experimental spectra — establishing it as the strongest model in this domain. Demonstrates the ability to design and execute rigorous multi-model comparisons.
+
+---
+
+### Project 4 — Impact of Non-Resonant Background on CNN Performance
+`Folder: NRBs_on_extraction_of_Raman_signals_from_CARS_spectra`
+
+Investigated how the choice of synthetic non-resonant background (NRB) during training data generation affects a CNN's ability to generalise to experimental spectra. Three NRB types were tested: product of two sigmoids, single sigmoid, and fourth-order polynomial. The polynomial-trained model demonstrated superior line-shape extraction and closest agreement with ground truth. Highlights how data engineering decisions upstream of model training critically determine downstream performance — a principle that applies equally to feature engineering in any data pipeline.
+
+---
+
+## Publications
+
+All peer-reviewed publications from this research programme are indexed on Google Scholar:
+
+**[View full publication list →](https://scholar.google.com/citations?user=GcWhnFcAAAAJ&hl=en)**
+
+6 publications in optics, vibrational spectroscopy, and computational methods.
+
+---
+
+## Technical Stack
+
+| Category | Tools & frameworks |
+|---|---|
+| Deep learning | TensorFlow, Keras |
+| Architectures | CNN, Bi-LSTM, LSTM, convolutional autoencoder (VECTOR) |
+| Optimisation | Bayesian hyperparameter search (Optuna) |
+| Data | Synthetic spectral data generation, experimental CARS spectra |
+| Language | Python |
+
+---
+
+## Connect
+
+- **Google Scholar:** [Ali Saghi](https://scholar.google.com/citations?user=GcWhnFcAAAAJ&hl=en)
+- **LinkedIn:** [ali-saghi-fabric](https://www.linkedin.com/in/ali-saghi-fabric/)
+- **Blog:** [lotusoftware.hashnode.dev](https://lotusoftware.hashnode.dev) — current work in Microsoft Fabric, Power BI, and agentic analytics engineering
+- **Email:** ali.saghi.2015@gmail.com
