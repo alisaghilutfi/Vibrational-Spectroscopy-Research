@@ -64,7 +64,7 @@ The baseline SpecNet model could not accurately recover spectral peaks near the 
 
 Notebook: `Hyperoptimized_SpecNet.ipynb`
 
-**Paper:** [Hyperparameter optimisation of SpecNet for Raman signal retrieval from CARS spectra](https://opg.optica.org/optcon/fulltext.cfm?uri=optcon-3-8-1461) — *Optics Continuum*, 2024
+**Paper:** [On the relevance of hyperparameter optimization of convolutional neural networks for retrieving spectral signals](https://opg.optica.org/optcon/fulltext.cfm?uri=optcon-3-8-1461) — *Optics Continuum*, 2024
 
 ---
 
@@ -75,7 +75,7 @@ Notebook: `Hyperoptimized_SpecNet.ipynb`
 | [Effect of non-resonant background on the extraction of Raman signals from CARS spectra using deep neural networks](https://pubs.rsc.org/en/content/articlehtml/2022/ra/d2ra03983d) | *RSC Advances* | 2022 |
 | [Semi-synthetic data generation to fine-tune a convolutional neural network for retrieving Raman signals from CARS spectra](https://opg.optica.org/optcon/fulltext.cfm?uri=optcon-1-11-2360) | *Optics Continuum* | 2022 |
 | [Evaluating different deep learning models for efficient extraction of Raman signals from CARS spectra](https://pubs.rsc.org/en/Content/ArticleLanding/2023/CP/D3CP01618H) | *Physical Chemistry Chemical Physics* | 2023 |
-| [Hyperparameter optimisation of SpecNet for Raman signal retrieval from CARS spectra](https://opg.optica.org/optcon/fulltext.cfm?uri=optcon-3-8-1461) | *Optics Continuum* | 2024 |
+| [On the relevance of hyperparameter optimization of convolutional neural networks for retrieving spectral signals](https://opg.optica.org/optcon/fulltext.cfm?uri=optcon-3-8-1461) | *Optics Continuum* | 2024 |
 
 Authors (all papers): Junjuri R., Saghi A., Lensu L., Vartiainen E.M.
 Full publication list: [Google Scholar — Ali Saghi](https://scholar.google.com/citations?user=GcWhnFcAAAAJ&hl=en)
