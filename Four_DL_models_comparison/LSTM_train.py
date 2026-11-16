@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import sys
 np.set_printoptions(threshold=sys.maxsize)
 
+np.random.seed(42)
 
 print("\033[H\033[J")
 plt.close('all')
@@ -14,7 +15,6 @@ plt.close('all')
 max_features = 15
 n_points = 640
 nu = np.linspace(0,1,n_points)
-wavenumber_640 = np.linspace(0,1,640)
 
 def random_chi3():
     """
@@ -88,34 +88,33 @@ def generate_batch(size = 1):
 
 import tensorflow as tf
 from tensorflow import keras
-from keras.models import Sequential
-from keras.layers import LSTM, Dense
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense
 
-
+tf.random.set_seed(42)
 opt = keras.optimizers.Adam(learning_rate=0.005)
 tf.keras.backend.clear_session()
 model_2 = Sequential()
 model_2.add(LSTM(30, input_shape=(640, 1),activation='tanh', recurrent_activation='sigmoid',recurrent_dropout=0., return_sequences=True, return_state=False))
 model_2.add(Dense(1))
-model_2.compile(loss='mae', optimizer=opt, metrics=['mean_absolute_error','mae','accuracy'])
+model_2.compile(loss='mae', optimizer=opt, metrics=['mae', 'mse'])
 model_2.summary()
 xnew2, ynew2 = generate_batch(50000)
-history = model_2.fit(xnew2, ynew2, validation_split=0.20, epochs=50, batch_size=10, verbose=1, validation_data=(generate_batch(1)))
+history = model_2.fit(xnew2, ynew2, validation_split=0.20, epochs=50, batch_size=10, verbose=1)
 
-'plotting Accuracy and loss'
-
-acc = history.history['accuracy']
-val_acc = history.history['val_accuracy']
+# Plotting MAE and loss
+mae = history.history['mae']
+val_mae = history.history['val_mae']
 loss = history.history['loss']
 val_loss = history.history['val_loss']
-epochs = range(1, len(acc) + 1)
+epochs = range(1, len(mae) + 1)
 plt.figure()
-plt.plot(epochs, acc, 'bo', label='Training')
-plt.plot(epochs, val_acc, 'r', label='Validation')
-plt.ylabel('Accuracy',fontweight='bold',size=20,family='Times New Roman')
+plt.plot(epochs, mae, 'bo', label='Training')
+plt.plot(epochs, val_mae, 'r', label='Validation')
+plt.ylabel('MAE',fontweight='bold',size=20,family='Times New Roman')
 plt.xlabel('Epoch',fontweight='bold',size=20,family='Times New Roman')
 plt.grid(color = 'black', linestyle = '--', linewidth = 0.5)
-plt.title('Training and validation accuracy',fontweight='bold',size=17,family='Times New Roman')
+plt.title('Training and validation MAE',fontweight='bold',size=17,family='Times New Roman')
 plt.legend(loc=0)
 legend_properties = {'weight':'bold','size': 17}
 plt.legend(prop=legend_properties)

@@ -10,6 +10,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 np.set_printoptions(threshold=sys.maxsize)
+
+np.random.seed(42)
+
 print("\033[H\033[J")
 plt.close('all')
 
@@ -108,10 +111,11 @@ xnew, ynew = generate_batch(400)
 
 
 import tensorflow as tf
-from keras.models import Sequential
-from keras.layers import Dense, Conv1D, Flatten, BatchNormalization, Activation, Dropout
-from keras import regularizers
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Conv1D, Flatten, BatchNormalization, Activation, Dropout
+from tensorflow.keras import regularizers
 
+tf.random.set_seed(42)
 tf.keras.backend.clear_session()
 model = Sequential()
 model.add(BatchNormalization(axis=-1, momentum=0.99, epsilon=0.001, center=True, scale=True, beta_initializer='zeros', gamma_initializer='ones', moving_mean_initializer='zeros', moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None, beta_constraint=None, gamma_constraint=None,input_shape = (n_points, 1)))
@@ -126,25 +130,24 @@ model.add(Dense(16, activation = 'relu', kernel_regularizer=regularizers.l1_l2(l
 model.add(Flatten())
 model.add(Dropout(.25))
 model.add(Dense(n_points,activation = 'relu'))
-model.compile(loss='mse', optimizer='Adam', metrics=['mean_absolute_error','mse','accuracy'])
+model.compile(loss='mse', optimizer='Adam', metrics=['mae', 'mse'])
 model.summary()
 
-history = model.fit(xnew, ynew,epochs=10, verbose = 1, validation_split=0.25, batch_size=20, shuffle='true')
+history = model.fit(xnew, ynew, epochs=10, verbose=1, validation_split=0.25, batch_size=20, shuffle=True)
 
-'Plotting Accuracy and loss'
-
-acc = history.history['accuracy']
-val_acc = history.history['val_accuracy']
+# Plotting MAE and loss
+mae = history.history['mae']
+val_mae = history.history['val_mae']
 loss = history.history['loss']
 val_loss = history.history['val_loss']
-epochs = range(1, len(acc) + 1)
+epochs = range(1, len(mae) + 1)
 plt.figure()
-plt.plot(epochs, acc, 'bo', label='Training')
-plt.plot(epochs, val_acc, 'r', label='Validation')
-plt.ylabel('Accuracy',fontweight='bold',size=20,family='Times New Roman')
+plt.plot(epochs, mae, 'bo', label='Training')
+plt.plot(epochs, val_mae, 'r', label='Validation')
+plt.ylabel('MAE',fontweight='bold',size=20,family='Times New Roman')
 plt.xlabel('Epoch',fontweight='bold',size=20,family='Times New Roman')
 plt.grid(color = 'black', linestyle = '--', linewidth = 0.5)
-plt.title('Training and validation accuracy',fontweight='bold',size=17,family='Times New Roman')
+plt.title('Training and validation MAE',fontweight='bold',size=17,family='Times New Roman')
 plt.legend(loc=0)
 legend_properties = {'weight':'bold','size': 17,'family': 'Times New Roman'}
 plt.legend(prop=legend_properties)

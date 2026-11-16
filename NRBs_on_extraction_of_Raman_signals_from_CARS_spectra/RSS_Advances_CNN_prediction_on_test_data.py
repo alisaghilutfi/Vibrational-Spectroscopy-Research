@@ -1,5 +1,6 @@
 """ Model model Prediction exprimental/synthetic CARS SPECTRA on """
 
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
@@ -24,8 +25,9 @@ model_retrained_Specnet.load_weights(input_filename)
 
 
 ## LOAD THE TEST DATA
-xtest=np.load(r'C:\WORK\python_codes\x_test_300_merge_spectra2.npy') # CARS data
-ytest=np.load(r'C:\WORK\python_codes\y_test_300_merge_spectra2.npy') # Raman data
+_dir = os.path.dirname(os.path.abspath(__file__))
+xtest=np.load(os.path.join(_dir, 'x_test_300_merge_spectra3.npy')) # CARS data
+ytest=np.load(os.path.join(_dir, 'y_test_300_merge_spectra3.npy')) # Raman data
 
 
 # ACCES THE TEST IN LOOP FORMAT
@@ -83,7 +85,7 @@ std_mse=np.std(results_mse.T,axis=1)
 plt.figure(i+3)
 plt.errorbar(wavenumber_640,average_mse, yerr=std_mse,fmt='.', ecolor='red', color='black')
 plt.minorticks_on()
-plt.grid(b=True, which='major', color='black', linestyle='-')
+plt.grid(True, which='major', color='black', linestyle='-')
 # plt.grid(b=True, which='minor', color='black', linestyle='--')
 plt.xlabel("Wavenumbers (1/cm)",fontsize=22,fontweight = 'bold',family='Times New Roman')
 plt.ylabel("Intensity",fontsize=22,fontweight = 'bold',family='Times New Roman')
