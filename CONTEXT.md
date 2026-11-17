@@ -128,6 +128,31 @@ The field has split into two tracks. Architecture novelty (CNN vs LSTM vs Transf
 
 *(Appended at session end — most recent first)*
 
+### 2026-11-17 (session 4) — Repo polish: folder rename, badges, paper READMEs
+
+#### What was done
+
+1. **Folder rename** — all five paper folders renamed to consistent `paperN_` prefix
+   with snake_case (`paper1_NRB_effect_on_CNN` … `paper5_Transformer_CARS`).
+   Git history preserved via `git mv`. References updated in README.md, CONTEXT.md,
+   `generate_readme_figures.py`.
+
+2. **Publication badges** — DOI (blue) + journal (green) badges added to each paper
+   section in the root README. All four papers now have both badge types.
+   DOIs for Papers 3 and 4: `10.1364/OPTCON.472573`, `10.1364/OPTCON.527778`.
+
+3. **Paper READMEs rewritten** — consistent template applied to all four:
+   badges, one-line summary, key finding, contents table with file descriptions,
+   data section, requirements note (including `tensorflow_env_higher` fix),
+   BibTeX citation block.
+   - Removed email addresses from Paper 2 (public repo).
+   - Replaced broken Junjuri/LUT GitHub links with references to this repo.
+   - Papers 3 and 4 were near-empty stubs — fully written from scratch.
+
+**Commits:** folder renames `2581e7e`, badges `d76925c` / `f93a7de`, paper READMEs `252e988`
+
+---
+
 ### 2026-11-17 (session 3) — Repo housekeeping + README visual upgrade
 
 #### What was done
