@@ -19,7 +19,7 @@ The core challenge: CARS spectra contain a strong Non-Resonant Background (NRB) 
 ## Projects
 
 ### Paper 1 — Effect of NRB Type on CNN Performance
-`Folder: NRBs_on_extraction_of_Raman_signals_from_CARS_spectra/`
+`Folder: paper1_NRB_effect_on_CNN/`
 
 Investigated how the choice of synthetic NRB during training data generation affects a CNN's ability to generalise to experimental spectra. Three NRB shapes were tested: product of two sigmoids, single sigmoid, and fourth-order polynomial. The polynomial-trained model showed the strongest line-shape extraction and best agreement with ground truth — establishing that upstream data engineering decisions critically determine model performance.
 
@@ -33,7 +33,7 @@ Weights: 3 x .h5 files included in repo.
 ---
 
 ### Paper 2 — Four Deep Learning Architectures Compared
-`Folder: Four_DL_models_comparison/`
+`Folder: paper2_four_architectures/`
 
 Introduced Bi-LSTM to CARS spectroscopy for the first time and benchmarked it against three architectures: LSTM, CNN (SpecNet-based), and VECTOR (a very deep convolutional autoencoder). All models were trained on data synthesised with three NRB types. The Bi-LSTM consistently outperformed the others on both synthetic and experimental spectra.
 
@@ -47,7 +47,7 @@ Scripts: `LSTM_train.py`, `bi-LSTM_train.py`
 ---
 
 ### Paper 3 — Fine-tuning a Pre-trained CNN (Finetuned SpecNet)
-`Folder: Finetuned_SpecNet/`
+`Folder: paper3_finetuned_SpecNet/`
 
 Applied transfer learning to adapt the pre-trained SpecNet CNN to two sets of semi-synthetic CARS spectra. The fine-tuned model achieved 86% prediction accuracy on semi-synthetic data and outperformed the original SpecNet on four experimental CARS spectra. Also characterised model sensitivity to noise — performance degrades non-linearly with increasing noise level.
 
@@ -60,7 +60,7 @@ Notebook: `Hyperoptimized_SpecNet.ipynb`
 ---
 
 ### Paper 4 — Hyperparameter Optimisation of SpecNet
-`Folder: Hyperparameter_Optimization_of_CNN/`
+`Folder: paper4_hyperparameter_optimization/`
 
 The baseline SpecNet model could not accurately recover spectral peaks near the edges of the spectral range, nor match peak intensities throughout the spectrum. Systematic hyperparameter optimisation (Bayesian search via Optuna) produced a refined architecture that resolved both failure modes.
 

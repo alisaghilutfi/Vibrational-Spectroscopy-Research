@@ -26,8 +26,8 @@ from tensorflow.keras import regularizers
 # Paths
 # ---------------------------------------------------------------------------
 REPO = Path(__file__).parent
-DATA_DIR    = REPO / "NRBs_on_extraction_of_Raman_signals_from_CARS_spectra"
-WEIGHTS_DIR = REPO / "Four_DL_models_comparison"
+DATA_DIR    = REPO / "paper1_NRB_effect_on_CNN"
+WEIGHTS_DIR = REPO / "paper2_four_architectures"
 OUT_DIR     = REPO / "figures"
 OUT_DIR.mkdir(exist_ok=True)
 
@@ -117,8 +117,8 @@ def mean_mse(model, x, y_true):
 
 print("\nLoading models for comparison chart...")
 
-PAPER1_DIR = REPO / "NRBs_on_extraction_of_Raman_signals_from_CARS_spectra"
-PAPER2_DIR = REPO / "Four_DL_models_comparison"
+PAPER1_DIR = REPO / "paper1_NRB_effect_on_CNN"
+PAPER2_DIR = REPO / "paper2_four_architectures"
 
 def build_cnn(n_points=640):
     """Reconstruct SpecNet CNN architecture (identical across all NRB variants)."""

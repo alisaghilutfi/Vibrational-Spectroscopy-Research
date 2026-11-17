@@ -32,11 +32,11 @@ in 2025–2026. The correct angle is:
 
 | # | Folder | Journal | Year | Status |
 |---|---|---|---|---|
-| 1 — NRB effect on CNN generalisation | `NRBs_on_extraction_of_Raman_signals_from_CARS_spectra/` | RSC Advances | 2022 | Published |
-| 2 — Four architectures compared | `Four_DL_models_comparison/` | PCCP | 2023 | Published |
-| 3 — Fine-tuned SpecNet | `Finetuned_SpecNet/` | Optics Continuum | 2022 | Published |
-| 4 — Hyperparameter optimisation | `Hyperparameter_Optimization_of_CNN/` | Optics Continuum | 2024 | Published |
-| 5 — Attention vs. recurrence study | `Transformer_CARS/` | TBD | — | In progress — needs re-scope |
+| 1 — NRB effect on CNN generalisation | `paper1_NRB_effect_on_CNN/` | RSC Advances | 2022 | Published |
+| 2 — Four architectures compared | `paper2_four_architectures/` | PCCP | 2023 | Published |
+| 3 — Fine-tuned SpecNet | `paper3_finetuned_SpecNet/` | Optics Continuum | 2022 | Published |
+| 4 — Hyperparameter optimisation | `paper4_hyperparameter_optimization/` | Optics Continuum | 2024 | Published |
+| 5 — Attention vs. recurrence study | `paper5_Transformer_CARS/` | TBD | — | In progress — needs re-scope |
 
 **Paper 5 re-scope checklist**
 - [ ] Retitle: *"Attention vs. recurrence under synthetic-to-real shift in CARS Raman retrieval"*
@@ -159,7 +159,7 @@ The field has split into two tracks. Architecture novelty (CNN vs LSTM vs Transf
 
 #### What was done
 
-**1. Notebook results summary filled in (`Transformer_CARS/benchmark_evaluation.ipynb`, cell `12-summary`)**
+**1. Notebook results summary filled in (`paper5_Transformer_CARS/benchmark_evaluation.ipynb`, cell `12-summary`)**
 
 The placeholder table was replaced with the actual benchmark numbers:
 
