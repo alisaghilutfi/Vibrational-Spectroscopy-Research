@@ -20,6 +20,7 @@ The core challenge: CARS spectra contain a strong Non-Resonant Background (NRB) 
 
 ### Paper 1 — Effect of NRB Type on CNN Performance
 `Folder: paper1_NRB_effect_on_CNN/`
+[![DOI](https://img.shields.io/badge/DOI-10.1039%2Fd2ra03983d-blue)](https://doi.org/10.1039/d2ra03983d) [![RSC Advances](https://img.shields.io/badge/RSC_Advances-2022-brightgreen)](https://pubs.rsc.org/en/content/articlehtml/2022/ra/d2ra03983d)
 
 Investigated how the choice of synthetic NRB during training data generation affects a CNN's ability to generalise to experimental spectra. Three NRB shapes were tested: product of two sigmoids, single sigmoid, and fourth-order polynomial. The polynomial-trained model showed the strongest line-shape extraction and best agreement with ground truth — establishing that upstream data engineering decisions critically determine model performance.
 
@@ -34,6 +35,7 @@ Weights: 3 x .h5 files included in repo.
 
 ### Paper 2 — Four Deep Learning Architectures Compared
 `Folder: paper2_four_architectures/`
+[![DOI](https://img.shields.io/badge/DOI-10.1039%2FD3CP01618H-blue)](https://doi.org/10.1039/D3CP01618H) [![PCCP](https://img.shields.io/badge/Phys._Chem._Chem._Phys.-2023-brightgreen)](https://pubs.rsc.org/en/Content/ArticleLanding/2023/CP/D3CP01618H)
 
 Introduced Bi-LSTM to CARS spectroscopy for the first time and benchmarked it against three architectures: LSTM, CNN (SpecNet-based), and VECTOR (a very deep convolutional autoencoder). All models were trained on data synthesised with three NRB types. The Bi-LSTM consistently outperformed the others on both synthetic and experimental spectra.
 
@@ -48,6 +50,7 @@ Scripts: `LSTM_train.py`, `bi-LSTM_train.py`
 
 ### Paper 3 — Fine-tuning a Pre-trained CNN (Finetuned SpecNet)
 `Folder: paper3_finetuned_SpecNet/`
+[![Optics Continuum](https://img.shields.io/badge/Optics_Continuum-2022-brightgreen)](https://opg.optica.org/optcon/fulltext.cfm?uri=optcon-1-11-2360)
 
 Applied transfer learning to adapt the pre-trained SpecNet CNN to two sets of semi-synthetic CARS spectra. The fine-tuned model achieved 86% prediction accuracy on semi-synthetic data and outperformed the original SpecNet on four experimental CARS spectra. Also characterised model sensitivity to noise — performance degrades non-linearly with increasing noise level.
 
@@ -61,6 +64,7 @@ Notebook: `Hyperoptimized_SpecNet.ipynb`
 
 ### Paper 4 — Hyperparameter Optimisation of SpecNet
 `Folder: paper4_hyperparameter_optimization/`
+[![Optics Continuum](https://img.shields.io/badge/Optics_Continuum-2024-brightgreen)](https://opg.optica.org/optcon/fulltext.cfm?uri=optcon-3-8-1461)
 
 The baseline SpecNet model could not accurately recover spectral peaks near the edges of the spectral range, nor match peak intensities throughout the spectrum. Systematic hyperparameter optimisation (Bayesian search via Optuna) produced a refined architecture that resolved both failure modes.
 
