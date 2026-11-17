@@ -6,6 +6,8 @@ The core challenge: CARS spectra contain a strong Non-Resonant Background (NRB) 
 
 ![NRB removal via Bi-LSTM](figures/cars_nrb_removal.png)
 
+![Model benchmarks](figures/model_comparison.png)
+
 **Key results across the project series:**
 - Fine-tuned CNN achieving **86% prediction accuracy** on semi-synthetic data, with superior performance over the baseline model on experimental spectra
 - Hyperparameter-optimised SpecNet reaching **~96% accuracy**, with mean-squared error **~60x lower** than the unoptimised baseline
