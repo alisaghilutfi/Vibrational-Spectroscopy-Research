@@ -106,6 +106,87 @@ in 2025–2026. The correct angle is:
 
 *(Appended at session end — most recent first)*
 
+### 2026-11-17 (session 2) — Benchmark audit, HF search, Milan data investigation
+
+#### What was done
+
+**1. Notebook results summary filled in (`Transformer_CARS/benchmark_evaluation.ipynb`, cell `12-summary`)**
+
+The placeholder table was replaced with the actual benchmark numbers:
+
+Synthetic (300 spectra, seed=42):
+- Bi-LSTM: MSE 3.05e-05 (best, 66x over SpecNet)
+- Transformer-FH: 2.62e-03 | Transformer-K: 3.88e-03 | Transformer-PE: 4.86e-03
+- All Transformers worse than SpecNet on synthetic data
+
+Experimental (4 spectra):
+- DMPC lipid membrane: Transformer-K best (6.94e-03); Bi-LSTM collapses to 2.65e-01 — 8700x degradation from its synthetic MSE
+- MEC Yeast: Bi-LSTM best (3.02e-03)
+- AMP-ADP-ATP: Transformer-FH best (2.45e-04)
+- Protein droplet: Transformer-PE best (2.10e-04)
+- Transformers win 3 of 4 experimental samples
+
+Key finding stated in notebook: "Models optimized for in-distribution synthetic accuracy generalize worst under domain shift." This is the Paper 5 publishable claim.
+
+Limitations checklist added: n=4 (no statistical claims), single seed, MEM/KK not ground truth, missing RamPINN/iPINN baselines, retitle required.
+
+**2. Hugging Face MCP search for CARS/Raman datasets**
+
+Findings:
+- No CARS, BCARS, or NRB-removal datasets or models exist on HF. Milan's data is not there.
+- Spontaneous Raman datasets found:
+  - `HTW-KI-Werkstatt/RamanBench`: 94 Raman datasets unified, 108K downloads, arXiv:2605.02003, Parquet format, "other" license (per-source). Useful for domain adaptation pretraining.
+  - `JunhanCai/GEMS-Raman-Dataset`: multi-source Raman for self-supervised + contrastive learning (GEMS framework), MIT license. Relevant to TRUST-CARS Aim 1.
+  - `HTW-KI-Werkstatt/RamanSpectraEthanolicYeastFermentations`: yeast fermentation Raman, CC-BY 4.0. Adjacent to exp_2 (MEC Yeast).
+- Opportunity confirmed: publishing a CARS benchmark on HF would be the first of its kind — no competition.
+
+**3. Milan GitHub repo investigation (crimson-project-eu)**
+
+Repos found:
+- `NRB_removal` (MIT): CNN+GRU notebook + GAN code. Training data loaded from local `.pkl` — not published.
+- `CARS_Simulation` (public): Their synthetic BCARS generator. MIT license. More sophisticated than the current generator:
+  - 3 NRB/Stokes profile types (polynomial, Gaussian, sigmoidal product)
+  - Noise range 10x wider (0.5%–5% vs 0.05%–0.3%)
+  - Peak filtering step (removes weak/buried features)
+  - 1000-point spectra, wavenumber 100–2000 cm-1
+  - Returns BCARS + Raman + NRB (3 outputs)
+- `deliverables`: project PDFs only
+
+Conclusion: **experimental data is not publicly available on GitHub or HF.** The Nature paper's Data Availability section (behind paywall) likely points to a Zenodo record — blocked without LUT access.
+
+#### Decisions made
+
+- LUT access needed to retrieve Milan's experimental dataset DOI from Nature paper — deferred until LUT access restored or supervisor consulted.
+- Three action items require supervisor consultation before proceeding:
+  1. Milan experimental data access (via LUT/Vartiainen)
+  2. HF model card drafting and weight publication (needs supervisor sign-off on what to release)
+  3. Cross-generator generalization experiment (Milan's generator vs own — new result for Paper 5; needs supervisor alignment before adding new experiments)
+
+#### Blockers added
+
+| Blocker | Status |
+|---|---|
+| Milan experimental data: Nature paper paywalled, no LUT access | Deferred — consult Vartiainen |
+| Milan experimental data: not on GitHub or HF, Zenodo DOI unknown | Deferred — same as above |
+| HF weight publication, paper 5 scope changes, new experiments | Need supervisor consultation before proceeding |
+
+#### Planned (approved in principle, pending supervisor consultation)
+
+- **Cross-generator experiment**: train on own synthetic generator, test on Milan's generator spectra using existing weights. No retraining needed — CPU inference, ~20-30 min. New result that belongs in Paper 5 before submission.
+- **HF model cards**: draft cards for all 5 models (SpecNet, Bi-LSTM, Transformer-K/PE/FH), upload `.h5` weights. Prerequisite for January outreach emails to Bocklitz and Polli.
+- **Paper 5 outline**: section structure, new title, figure plan — ready to draft as a document.
+- **HF CARS benchmark dataset repo**: publish 300 synthetic test spectra + 4 experimental CSVs + Milan data (once obtained). First CARS benchmark on HF.
+
+#### Tools/resources noted for future use
+
+- HF MCP (`mcp__claude_ai_Hugging_Face__*`): live search + file browsing of HF Hub. Authenticated as ali-saghi. Use for dataset search, model card publishing, file inspection.
+- NotebookEdit: direct cell editing in `.ipynb` without opening Jupyter. Used to fill cell `12-summary`.
+- Milan's synthetic generator: `crimson-project-eu/CARS_Simulation` — clone and compare with own generator before next experimental expansion.
+- RamanBench (arXiv:2605.02003): 94 spontaneous Raman datasets, could serve as domain adaptation pretraining corpus for TRUST-CARS WP2.
+- GEMS dataset (`JunhanCai/GEMS-Raman-Dataset`): MIT license, multi-source Raman, self-supervised framework — relevant to TRUST-CARS Aim 1.
+
+---
+
 ### 2026-11-17 — CONTEXT.md created
 
 - Reviewed Strategic Roadmap (`CARS Deep-Learning Research_ Strategic Roadmap.md`)
