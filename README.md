@@ -50,7 +50,7 @@ Scripts: `LSTM_train.py`, `bi-LSTM_train.py`
 
 ### Paper 3 — Fine-tuning a Pre-trained CNN (Finetuned SpecNet)
 `Folder: paper3_finetuned_SpecNet/`
-[![Optics Continuum](https://img.shields.io/badge/Optics_Continuum-2022-brightgreen)](https://opg.optica.org/optcon/fulltext.cfm?uri=optcon-1-11-2360)
+[![DOI](https://img.shields.io/badge/DOI-10.1364%2FOPTCON.472573-blue)](https://doi.org/10.1364/OPTCON.472573) [![Optics Continuum](https://img.shields.io/badge/Optics_Continuum-2022-brightgreen)](https://opg.optica.org/optcon/fulltext.cfm?uri=optcon-1-11-2360)
 
 Applied transfer learning to adapt the pre-trained SpecNet CNN to two sets of semi-synthetic CARS spectra. The fine-tuned model achieved 86% prediction accuracy on semi-synthetic data and outperformed the original SpecNet on four experimental CARS spectra. Also characterised model sensitivity to noise — performance degrades non-linearly with increasing noise level.
 
@@ -64,7 +64,7 @@ Notebook: `Hyperoptimized_SpecNet.ipynb`
 
 ### Paper 4 — Hyperparameter Optimisation of SpecNet
 `Folder: paper4_hyperparameter_optimization/`
-[![Optics Continuum](https://img.shields.io/badge/Optics_Continuum-2024-brightgreen)](https://opg.optica.org/optcon/fulltext.cfm?uri=optcon-3-8-1461)
+[![DOI](https://img.shields.io/badge/DOI-10.1364%2FOPTCON.527778-blue)](https://doi.org/10.1364/OPTCON.527778) [![Optics Continuum](https://img.shields.io/badge/Optics_Continuum-2024-brightgreen)](https://opg.optica.org/optcon/fulltext.cfm?uri=optcon-3-8-1461)
 
 The baseline SpecNet model could not accurately recover spectral peaks near the edges of the spectral range, nor match peak intensities throughout the spectrum. Systematic hyperparameter optimisation (Bayesian search via Optuna) produced a refined architecture that resolved both failure modes.
 
