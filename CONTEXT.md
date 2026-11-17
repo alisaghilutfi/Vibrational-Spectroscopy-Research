@@ -128,6 +128,33 @@ The field has split into two tracks. Architecture novelty (CNN vs LSTM vs Transf
 
 *(Appended at session end — most recent first)*
 
+### 2026-11-17 (session 3) — Repo housekeeping + README visual upgrade
+
+#### What was done
+
+1. **CLAUDE.md created** — repo-scoped rules: Python env (TF 2.7 / TF 2.11), notebook vs.
+   script convention, data/weights policy, public-repo guardrails, CONTEXT.md protocol.
+
+2. **Private files gitignored** — `CARS Deep-Learning Research_ Strategic Roadmap.md`
+   and `Claude outputs/` folder added to `.gitignore`. Progress report renamed to
+   remove supervisor names from filename.
+
+3. **README visual upgrade:**
+   - `generate_readme_figures.py` added at repo root — generates both README figures
+     from committed weights + test data; requires `tensorflow_env_higher` (TF 2.11,
+     NumPy 1.23.5); `tensorflow_env` incompatible (NumPy 1.24 breaks TF 2.7).
+   - `figures/cars_nrb_removal.png` — before/after for 2 spectra (Bi-LSTM),
+     examples selected by per-sample MSE percentile (25th and 60th).
+   - `figures/model_comparison.png` — two-panel bar chart: NRB type effect on CNN
+     (Paper 1) and architecture comparison CNN/LSTM/Bi-LSTM (Paper 2). CNN weights
+     are weights-only `.h5` files (not full saved models) — script rebuilds
+     architecture via `build_cnn()` before `load_weights()`.
+   - Both figures embedded in README above Key Results section.
+
+**Commits:** `bc6004c` (hero figure), `a7e2b7f` (comparison chart)
+
+---
+
 ### 2026-11-17 (session 2) — Benchmark audit, HF search, Milan data investigation
 
 #### What was done
