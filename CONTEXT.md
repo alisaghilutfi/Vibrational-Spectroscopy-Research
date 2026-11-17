@@ -77,14 +77,36 @@ in 2025–2026. The correct angle is:
 
 ---
 
+### Field landscape (verified Nov 2026 via web search)
+
+The field has split into two tracks. Architecture novelty (CNN vs LSTM vs Transformer) is no longer publishable on its own.
+
+**Track 1 — Physics-informed models (Jena dominates)**
+- iPINN (Bocklitz, Sept 2026): Transformer encoder → 24 Lorentzian peak slots → differentiable forward model. MAE 0.016, best published result. No explicit NRB estimation during training.
+- RamPINN (Denzler, Oct 2025): KK-consistent dual decoder, self-supervised, zero-shot to 6 real molecules.
+- UQ-PINN (Denzler, Nov 2025): calibrated uncertainty (ensembles, MC-dropout, conformal prediction). Physics losses improve calibration.
+- DA-DMD (Denzler, 2025): attention-weighted dynamic mode decomposition.
+
+**Track 2 — Foundation models and benchmarks (spontaneous Raman only — CARS layer unoccupied)**
+- RamanBench (NeurIPS 2026, arXiv 2605.02003): 94 spontaneous Raman datasets — not CARS.
+- RamanPFN (Aug 2026, arXiv 2608.02157): tabular foundation model, 74 datasets — not CARS.
+- DSCF (Nature MI 2025): 1M+ spectra pretrained — not CARS.
+- GEMS (HF 2026): multi-source self-supervised Raman — not CARS.
+
+**Key gap:** No CARS benchmark exists on HF or anywhere publicly. No systematic sim-to-real transfer study across multiple architectures. No head-to-head between physics-informed and data-driven models on the same real data. UQ not connected to domain shift.
+
+---
+
 ### Research directions (ranked)
 
 | Rank | Direction | Novelty | Feasibility |
 |---|---|---|---|
-| 1 | **Sim-to-real domain adaptation + calibrated uncertainty + KK/MEM-physics constraints** | Medium — unsupervised DA on unlabeled real spectra not yet addressed | High — builds directly on Papers 1–5 |
-| 2 | **Open multi-lab CARS benchmark** (Hugging Face datasets + models, standard metrics: MSE, peak F1, edge error, calibration) | Medium-high — no multi-lab CARS benchmark exists | Very high |
-| 3 | **Hyperspectral BCARS imaging** (3D conv / ViT over cubes, tissue/cell classification) | Medium-high | Medium — requires microscope access |
-| 4 | **Coherent Raman foundation model** (self-supervised pretraining across Raman/CARS/SRS) | High for CARS | Medium-low — needs large multi-lab data ecosystem |
+| 1 | **Open CARS benchmark** (HF dataset + standard metrics: MSE, peak F1, edge error, calibration) | High — nobody has done this for CARS | Very high — data engineering is a strength |
+| 2 | **Sim-to-real gap study** (cross-generator + cross-architecture, multiple seeds) | Medium-high — 8700x Bi-LSTM collapse is new evidence | High — Milan's generator in hand, no retraining needed |
+| 3 | **Sim-to-real domain adaptation + KK physics constraints** | Medium — unsupervised DA on unlabeled real spectra not yet addressed | High — builds on Papers 1–5 |
+| 4 | **Uncertainty as proxy for domain shift** | Medium — connects UQ-PINN and sim-to-real evidence | Medium — LUT Bayesian heritage is relevant |
+| 5 | **Hyperspectral BCARS imaging** (3D conv / ViT over cubes, tissue/cell classification) | Medium-high | Medium — requires microscope access at host |
+| 6 | **Coherent Raman foundation model** (self-supervised pretraining across CARS/SRS) | High for CARS specifically | Medium-low — benchmark must come first |
 
 ---
 
