@@ -4,6 +4,8 @@ This repository documents PhD research conducted at LUT University (Computationa
 
 The core challenge: CARS spectra contain a strong Non-Resonant Background (NRB) that distorts the underlying Raman signal. Traditional retrieval methods require manually tuned parameters and domain expertise. This research replaces that manual process with trained neural networks — CNN, Bi-LSTM, LSTM, and autoencoder architectures — that generalise across experimental conditions.
 
+![NRB removal via Bi-LSTM](figures/cars_nrb_removal.png)
+
 **Key results across the project series:**
 - Fine-tuned CNN achieving **86% prediction accuracy** on semi-synthetic data, with superior performance over the baseline model on experimental spectra
 - Hyperparameter-optimised SpecNet reaching **~96% accuracy**, with mean-squared error **~60x lower** than the unoptimised baseline
