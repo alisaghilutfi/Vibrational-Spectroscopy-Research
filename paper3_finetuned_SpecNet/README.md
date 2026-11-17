@@ -1,6 +1,63 @@
-# Finetuned SpecNet
-In this work, the Raman signal is extracted from the CARS spectrum by using a convolutional neural network. The model architecture is adapted from the original SpecNet model. The model is pre-trained with synthetic data and fine-tuned with semi-synthetic data based on two sets of semi-synthetic spectra. The experimental results show that the model achieves 86% accuracy in predicting the Raman signal of semi-synthetic data. In addition, the sensitivity of the model performance to varying levels of noise is analysed. Based on standard metrics, the model performance decreases with the increasing level of noise in a non-linear manner. Finally, the prediction capability of the fine-tuned SpecNet model was evaluated on the four experimental CARS spectra and the results were found to be better compared to SpecNet.
+# Paper 3 — Fine-tuning a Pre-trained CNN (Finetuned SpecNet)
 
-Paper's link: [Semi-synthetic data generation to fine-tune a convolutional neural network for retrieving Raman signals from CARS spectra](https://opg.optica.org/optcon/fulltext.cfm?uri=optcon-1-11-2360)
+[![DOI](https://img.shields.io/badge/DOI-10.1364%2FOPTCON.472573-blue)](https://doi.org/10.1364/OPTCON.472573) [![Optics Continuum](https://img.shields.io/badge/Optics_Continuum-2022-brightgreen)](https://opg.optica.org/optcon/fulltext.cfm?uri=optcon-1-11-2360)
 
-By [Ali Saghi](https://scholar.google.co.in/citations?view_op=list_works&hl=en&hl=en&user=GcWhnFcAAAAJ), [Rajendhar junjuri](https://scholar.google.co.in/citations?user=BRu_wuAAAAAJ&hl=en), [Lasse Lensu](https://scholar.google.co.in/citations?user=dk2Ezl0AAAAJ&hl=en&oi=ao), and [Erik M. Vartiainen](https://scholar.google.co.in/citations?user=zbxe2qYAAAAJ&hl=en&oi=ao)
+> Applies transfer learning to adapt the pre-trained SpecNet CNN to semi-synthetic CARS
+> spectra. Achieves 86% prediction accuracy on semi-synthetic data and outperforms the
+> original SpecNet on four experimental CARS spectra. Also characterises model sensitivity
+> to noise — performance degrades non-linearly with increasing noise level.
+
+**Authors:** Saghi A., Junjuri R., Lensu L., Vartiainen E.M.
+
+---
+
+## Key finding
+
+86% accuracy on semi-synthetic data; fine-tuned SpecNet outperforms the original
+pre-trained SpecNet on all four experimental CARS spectra. Noise sensitivity is
+non-linear — small noise increases cause disproportionate performance drops.
+
+---
+
+## Contents
+
+| File | Description |
+|---|---|
+| `Hyperoptimized_SpecNet.ipynb` | Fine-tuning notebook: data preparation, training, evaluation |
+
+**Pre-trained SpecNet weights** (starting point for fine-tuning) are in
+`../paper1_NRB_effect_on_CNN/Polynomial_NRB_model_weights.h5`.
+
+---
+
+## Data
+
+Semi-synthetic CARS spectra used for fine-tuning are described in the paper.
+Experimental CARS spectra are available on request —
+contact [Erik M. Vartiainen](https://research.lut.fi/converis/portal/detail/Person/56843) (LUT University).
+
+---
+
+## Requirements
+
+```bash
+pip install -r ../requirements.txt   # TensorFlow 2.7, NumPy, Matplotlib
+```
+
+Tested in Spyder (Python 3). Use `tensorflow_env_higher` (TF 2.11 + NumPy 1.23)
+if TF 2.7 raises a NumPy compatibility error.
+
+---
+
+## Citation
+
+```bibtex
+@article{saghi2022semi,
+  title   = {Semi-synthetic data generation to fine-tune a convolutional neural network
+             for retrieving Raman signals from CARS spectra},
+  author  = {Saghi, Ali and Junjuri, Rajendhar and Lensu, Lasse and Vartiainen, Erik M.},
+  journal = {Optics Continuum},
+  year    = {2022},
+  doi     = {10.1364/OPTCON.472573}
+}
+```

@@ -1,47 +1,78 @@
-# Four models comparison
+# Paper 2 — Four Deep Learning Architectures Compared
 
-These four models are different from each other viz, convolutional neural network (CNN), Long short-term memory (LSTM) neural network, very deep convolutional autoencoders (VECTOR), and Bi-directional LSTM (Bi – LSTM) neural network. 
+[![DOI](https://img.shields.io/badge/DOI-10.1039%2FD3CP01618H-blue)](https://doi.org/10.1039/D3CP01618H) [![PCCP](https://img.shields.io/badge/Phys._Chem._Chem._Phys.-2023-brightgreen)](https://pubs.rsc.org/en/Content/ArticleLanding/2023/CP/D3CP01618H)
 
-Paper title: [Evaluating different deep learning models for efficient extraction of Raman signals from CARS spectra](https://pubs.rsc.org/en/Content/ArticleLanding/2023/CP/D3CP01618H)
+> First application of Bi-LSTM to CARS spectroscopy. Benchmarks four architectures —
+> CNN (SpecNet), LSTM, VECTOR (deep convolutional autoencoder), and Bi-LSTM — on
+> both synthetic and experimental spectra. Bi-LSTM outperforms all others on every metric.
 
-By [Rajendhar junjuri](https://scholar.google.co.in/citations?user=BRu_wuAAAAAJ&hl=en)\, [Ali Saghi](https://scholar.google.co.in/citations?view_op=list_works&hl=en&hl=en&user=GcWhnFcAAAAJ),  [Lasse Lensu](https://scholar.google.co.in/citations?user=dk2Ezl0AAAAJ&hl=en&oi=ao), and [Erik M. Vartiainen](https://scholar.google.co.in/citations?user=zbxe2qYAAAAJ&hl=en&oi=ao) 
+**Authors:** Junjuri R., Saghi A., Lensu L., Vartiainen E.M.
 
-## About Synthetic test data and code
-The details of the 300 synthetic test spectra
+---
 
-"y_test_300_merge_spectra3.npy"---> referes to the true Raman signal and data can be found here https://github.com/Junjuri/LUT/blob/main/y_test_300_merge_spectra3.npy
+## Key finding
 
-"x_test_300_merge_spectra3.npy"---> referes to the input CARS data and data can be found here https://github.com/Junjuri/LUT/blob/main/x_test_300_merge_spectra3.npy
+Bi-LSTM outperforms CNN, LSTM, and VECTOR on all metrics — synthetic and experimental.
+All models were trained on data synthesised with three NRB types (polynomial, one-sigmoid,
+two-sigmoid product).
 
-Testing can be done by using the following program.
-'RSS_Advances_CNN_prediction_on_test_data.py'. It can be found here https://github.com/Junjuri/LUT/blob/main/RSS_Advances_CNN_prediction_on_test_data.py
+---
 
-## About the experimental CARS test data
-The experimental CARS test data set used in this investigation can only be provided upon request and can contact [Erik M. Vartiainen](https://research.lut.fi/converis/portal/detail/Person/56843?auxfun=&lang=en_GB) 
+## Contents
 
-## About the training codes
+| File | Description |
+|---|---|
+| `bi-LSTM_train.py` | Train the Bi-LSTM model |
+| `LSTM_train.py` | Train the LSTM model |
+| `Bi_LSTM_model_weights.h5` | Trained Bi-LSTM weights |
+| `LSTM_model_weights.h5` | Trained LSTM weights |
 
-1. CNN model trainin can be done by using this program 'RSS_Advances_CNN_to_train_with_different_NRBs.py' Please see here     https://github.com/Junjuri/LUT/blob/main/RSS_Advances_CNN_to_train_with_different_NRBs.py
+**CNN weights** are in `../paper1_NRB_effect_on_CNN/Polynomial_NRB_model_weights.h5` (polynomial NRB, best variant).
+**VECTOR weights** are available on request — see Data section below.
 
-2. Bi-LSTM model training can be done by using this program 'bi-LSTM_train.py'. 
+**Test data** (`x_test_300_merge_spectra3.npy`, `y_test_300_merge_spectra3.npy`) lives in
+`../paper1_NRB_effect_on_CNN/` and is shared across Papers 1 and 2.
 
-3. LSTM model training can be done by using this program 'LSTM_train.py'. 
+---
 
-4. Vector model training can be done by using this program
+## Data
 
+Synthetic test spectra: `../paper1_NRB_effect_on_CNN/`.
+Experimental CARS spectra and VECTOR model weights are available on request —
+contact [Erik M. Vartiainen](https://research.lut.fi/converis/portal/detail/Person/56843) (LUT University).
 
-## About the trained model weights
+---
 
-"CNN_model_weights can be found here https://github.com/Junjuri/LUT/blob/main/Polynomial_NRB_model_weights.h5 with a name 'Polynomial_NRB_model_weights.h5' 
+## Model architectures
 
-"LSTM_model_weights.h5" --->referes weights of the model trained with LSTM.
+**Bi-LSTM:** 3 × Bidirectional LSTM (30 units, `tanh`, `return_sequences=True`) →
+TimeDistributed Dense(1, `tanh`). Input: `(640, 1)`. Output: `(640, 1)`.
 
-"VECTOR_model_weights.h5" --->referes weights of the model trained with VECTOR can be accseed via request at ali.saghi.2015@gmail.com or rajendhar.j2008@gmail.com
+**LSTM:** 1 × LSTM (30 units, `tanh`, `return_sequences=True`) → Dense(1).
+Input: `(640, 1)`. Output: `(640, 1)`.
 
-"Bi_LSTM_model_weights.h5" --->referes weights of the model trained with Bi-LSTM
+---
 
-## Getting Started and Requirements 
-You can use Python (TensorFlow 2.7.0) to test the pre-trained network. We have tested it in Spyder.
+## Requirements
+
+```bash
+pip install -r ../requirements.txt   # TensorFlow 2.7, NumPy, Matplotlib
+```
+
+Tested in Spyder (Python 3). Use `tensorflow_env_higher` (TF 2.11 + NumPy 1.23)
+if TF 2.7 raises a NumPy compatibility error.
+
+---
 
 ## Citation
-Formats to cite our paper will be updated soon
+
+```bibtex
+@article{junjuri2023evaluating,
+  title   = {Evaluating different deep learning models for efficient extraction
+             of Raman signals from CARS spectra},
+  author  = {Junjuri, Rajendhar and Saghi, Ali and Lensu, Lasse and Vartiainen, Erik M.},
+  journal = {Physical Chemistry Chemical Physics},
+  year    = {2023},
+  doi     = {10.1039/D3CP01618H}
+}
+```
