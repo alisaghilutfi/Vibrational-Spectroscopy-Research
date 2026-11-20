@@ -128,7 +128,7 @@ The field has split into two tracks. Architecture novelty (CNN vs LSTM vs Transf
 
 *(Appended at session end — most recent first)*
 
-### 2026-11-20 (session 5) — Open CARS benchmark: package build + first results
+### 2026-11-20 (session 5) — Open CARS benchmark: package, results, MLflow tracking
 
 #### What was done
 
@@ -174,6 +174,14 @@ Full benchmark numbers and per-sample results are in `cars_benchmark/CONTEXT.md`
 Recurrent models collapse on structured lipid NRB (DMPC). SpecNet-Polynomial
 is the most stable cross-sample generaliser. SpecNet-Full weights suspect —
 needs investigation. Full detail in the private benchmark context.
+
+#### Also done (late session)
+
+7. **MLflow tracking wired in** — installed MLflow 2.17.2 in `tensorflow_env_higher`
+   (protobuf pinned to 3.20.3 for TF 2.11 compatibility). `run_benchmark.py` now
+   logs every run to `cars_benchmark/mlruns/` (gitignored). 5 runs confirmed in
+   `CARS-Benchmark` experiment, 15 metrics each. UI: `mlflow ui --backend-store-uri
+   "file:///C:/Users/alisa/.../cars_benchmark/mlruns"` → localhost:5000.
 
 #### Next steps (carry forward)
 
