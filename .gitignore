@@ -20,3 +20,8 @@ Thumbs.db
 # Private notes (never commit)
 CARS Deep-Learning Research_ Strategic Roadmap.md
 Claude outputs/
+
+# Experimental CARS spectra — IP/data-sharing constraints
+# Local working copies only; available on request from the original lab.
+# See experimental_data/README.md for provenance and inventory.
+experimental_data/
