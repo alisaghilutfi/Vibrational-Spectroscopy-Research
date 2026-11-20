@@ -41,7 +41,7 @@ in 2025–2026. The correct angle is:
 **Paper 5 re-scope checklist**
 - [ ] Retitle: *"Attention vs. recurrence under synthetic-to-real shift in CARS Raman retrieval"*
 - [ ] Cite RamPINN, DA-DMD, iPINN; drop "first Transformer" claim
-- [ ] Expand test set: add Milan public BCARS data, RamPINN 6-molecule set, toluene/DMSO (4 spectra is statistically insufficient)
+- [ ] Expand test set: Milan public BCARS data (Vernuccio 2022, Zenodo 6772179) and RamPINN 6-solvent set are **incompatible** — fingerprint region ~700–1800 cm⁻¹ at 1000 pts vs. our CH-stretch 2500–3200 cm⁻¹ at 640 pts; reuse requires retraining all 8 models. Compatible expansion requires more spectra from the same lab setup (Vartiainen access) or a new CH-stretch public dataset.
 - [ ] Report multiple seeds, peak-level metrics (F1, edge error), RamPINN/iPINN baselines
 - [ ] State explicitly: MEM/KK reference is not ground truth — a low experimental MSE measures agreement with MEM, not accuracy
 - [ ] Target venue: *Optics Express*, *Analyst*, or *J. Raman Spectroscopy*
@@ -71,7 +71,7 @@ in 2025–2026. The correct angle is:
 | Blocker | Impact | Status |
 |---|---|---|
 | "First Transformer" claim invalid | Paper 5 must be re-scoped before submission | Mitigated — negative-result angle is publishable |
-| Experimental test set too small (4 spectra) | Statistical claims unsupportable | Action: add Milan + RamPINN public sets |
+| Experimental test set too small (4 spectra) | Statistical claims unsupportable | Milan/RamPINN public sets are incompatible (fingerprint region, 1000 pts); only fix is more spectra from Vartiainen's lab setup |
 | MEM/KK reference is not ground truth | Limits what "accuracy" means in experimental results | Must be stated explicitly in Paper 5 |
 | Experimental CARS spectra not in repo | Reproducibility | Contact Vartiainen for access; cite availability in Paper 5 |
 
