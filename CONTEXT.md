@@ -159,14 +159,26 @@ Rankings are fully stable across seeds. Variance is small vs. effect sizes:
 The ~4000x DMPC robustness gap between Transformer-K and Bi-LSTM is now
 statistically defensible for Paper 5.
 
+#### What was also done (session 7 continued)
+
+3. **Leaderboard figure regenerated** — `paper5_leaderboard.pdf/.png` rebuilt with
+   bootstrap error bars on both panels and a rank-inversion arrow (Transformer-K →
+   Bi-LSTM). Committed `84309a7`.
+
+4. **Milan/RamPINN public datasets investigated** — Vernuccio 2022 (Zenodo 6772179,
+   CC BY 4.0) and RamPINN 6-solvent set are fingerprint region ~700–1800 cm⁻¹ at
+   1000 pts. Incompatible with our CH-stretch 640-pt setup. Expanding the experimental
+   split requires more spectra from Vartiainen's lab — same sign-off blocker.
+   Committed `1d86801`.
+
 #### Next steps (carry forward)
 
 - [x] Investigate SpecNet-Full checkpoint validity  *(done — valid file, genuine low performance)*
 - [x] Add multiple seeds to benchmark  *(done — 3 seeds, all models)*
-- [ ] Regenerate leaderboard figure with error bars
-- [ ] Get Vartiainen sign-off for experimental data public release
+- [x] Regenerate leaderboard figure with error bars  *(done — 84309a7)*
+- [x] Milan/RamPINN public datasets — investigated, incompatible  *(done — 1d86801)*
+- [ ] Get Vartiainen sign-off — experimental data release + Paper 5 draft (both blocked)
 - [ ] Upload to HF (`ali-saghi/CARS-Benchmark`) on arXiv submission
-- [ ] Write Paper 5 benchmark section
 
 ---
 
