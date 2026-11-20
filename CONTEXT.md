@@ -128,6 +128,42 @@ The field has split into two tracks. Architecture novelty (CNN vs LSTM vs Transf
 
 *(Appended at session end — most recent first)*
 
+### 2026-11-20 (session 6) — Transformer models added to benchmark (8-model leaderboard)
+
+#### What was done
+
+1. **Found Transformer weight files** — located in thesis archive at
+   `_other stuff/PhD/thesis_.../06_Transformers/Finals/`. Three files:
+   `weights_Transformer_timeseriesKeras_2_2.h5`, `weights_Transformer_timeseriesPosEncEmb.h5`,
+   `weights_Transformer_timeseriesFourierHead.h5`. Not committed (unpublished paper).
+
+2. **Added 3 Transformer architectures to `run_benchmark.py`** — Transformer-K,
+   Transformer-PE, Transformer-FH. Architecture code ported directly from
+   `paper5_Transformer_CARS/benchmark_evaluation.ipynb`. Custom Keras layers
+   (`_EmbeddingLayer`, `_PositionalEncoding`, `_FourierHead`) implemented inline.
+
+3. **Ran 8-model benchmark** — all models logged to MLflow `CARS-Benchmark`
+   experiment. Full numbers in `cars_benchmark/CONTEXT.md` (private).
+
+#### Key new finding (session 6)
+
+Transformer-K gen_ratio on DMPC: **1.7x**. Bi-LSTM on the same sample: **6723x**.
+That is a ~4000x difference in domain-shift robustness between the best Transformer
+and the best recurrent model, on the hardest experimental sample. The Paper 5
+hypothesis is now quantified across all 8 models:
+> *Best in-distribution MSE (Bi-LSTM, 3.9e-05) → worst DMPC generalisation (6723x).
+> Transformer-K has 100x worse synthetic MSE but 4000x better DMPC robustness.*
+
+#### Next steps (carry forward)
+
+- [ ] Build leaderboard artifact / figure for Paper 5
+- [ ] Investigate SpecNet-Full checkpoint validity
+- [ ] Get Vartiainen sign-off for experimental data public release
+- [ ] Add multiple seeds to benchmark for statistical claims
+- [ ] Upload to HF on arXiv submission
+
+---
+
 ### 2026-11-20 (session 5) — Open CARS benchmark: package, results, MLflow tracking
 
 #### What was done
