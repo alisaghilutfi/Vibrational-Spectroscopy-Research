@@ -21,6 +21,9 @@ Thumbs.db
 CARS Deep-Learning Research_ Strategic Roadmap.md
 Claude outputs/
 
+# Benchmark package — not public yet; release after Paper 5 submission
+cars_benchmark/
+
 # Experimental CARS spectra — IP/data-sharing constraints
 # Local working copies only; available on request from the original lab.
 # See experimental_data/README.md for provenance and inventory.
