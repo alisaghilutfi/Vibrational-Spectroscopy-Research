@@ -128,6 +128,63 @@ The field has split into two tracks. Architecture novelty (CNN vs LSTM vs Transf
 
 *(Appended at session end — most recent first)*
 
+### 2026-11-20 (session 5) — Open CARS benchmark: package build + first results
+
+#### What was done
+
+1. **Benchmarked the field** — confirmed no CARS benchmark exists publicly (HF,
+   GitHub, or literature). Closest analogue: RamanBench (arXiv:2605.02003),
+   spontaneous Raman only. CARS evaluation metric design is original.
+
+2. **Discovered and inventoried experimental data** — found all local experimental
+   CARS spectra under `C:\Users\alisa\DS-ML-DL\_other stuff\`. Catalogued into
+   three groups: Group A (640-pt, 2500–3100 cm⁻¹, 4 paired CARS+Raman CSVs —
+   canonical for benchmark), Group B (640-pt fingerprint, no Raman pair), Group C
+   (1000-pt, 3 paired samples). Canonical source: `08_HyperOptimizations/Comparisons/experimental_CARS/`.
+
+3. **Created `experimental_data/` folder** — gitignored (IP-restricted). Copied
+   Group A CSVs. Wrote `experimental_data/README.md` with full provenance, file
+   inventory, and action items (Vartiainen sign-off required for public release).
+   Commits: `f072062` (.gitignore), content not committed.
+
+4. **Built `cars_benchmark/` package** — gitignored until Paper 5 submission.
+   - `metrics.py`: MSE, peak F1 (scipy find_peaks, ±2 bin tolerance), edge error
+     (gradient-based), calibration score (ECE, returns None for deterministic models),
+     generalisation ratio (MSE_exp / MSE_syn).
+   - `loaders.py`: `load_synthetic`, `load_experimental` (with UTF-8 BOM fix),
+     `load_weights_keras23` (Keras 2.3.1 → TF 2.11 positional weight loader).
+   - `evaluate.py`: CLI entry point `cars-eval`.
+   - 15 unit tests, all passing in `tensorflow_env_higher`.
+   Commit: `ed8a309` (.gitignore entry only; package itself not committed).
+
+5. **Fixed Keras 2.3.1 compatibility** — `Specnet_weights.h5` has no model config,
+   `_1`-suffixed layer names, and weights stored alphabetically (bias before kernel).
+   Diagnosed via h5py inspection. Fixed with `load_weights_keras23()`: positional
+   layer matching + `sorted(keys, reverse=True)` for [kernel, bias] order.
+
+6. **Ran full benchmark** — all 5 committed model weights evaluated on synthetic
+   (300 spectra) and 4 experimental samples. Full results in `cars_benchmark/CONTEXT.md`.
+
+#### Key findings (2026-11-20)
+
+Full benchmark numbers and per-sample results are in `cars_benchmark/CONTEXT.md`
+(gitignored — private until supervisor sign-off).
+
+**High-level:** best synthetic MSE predicts worst experimental generalisation.
+Recurrent models collapse on structured lipid NRB (DMPC). SpecNet-Polynomial
+is the most stable cross-sample generaliser. SpecNet-Full weights suspect —
+needs investigation. Full detail in the private benchmark context.
+
+#### Next steps (carry forward)
+
+- [ ] Investigate SpecNet-Full checkpoint validity
+- [ ] Build leaderboard artifact for Paper 5 supplementary
+- [ ] Add Paper 5 Transformer model to benchmark once trained
+- [ ] Get Vartiainen sign-off for experimental data public release
+- [ ] Upload to HF (`ali-saghi/CARS-Benchmark`) on arXiv submission
+
+---
+
 ### 2026-11-17 (session 4) — Repo polish: folder rename, badges, paper READMEs
 
 #### What was done
