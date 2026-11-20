@@ -154,9 +154,18 @@ hypothesis is now quantified across all 8 models:
 > *Best in-distribution MSE (Bi-LSTM, 3.9e-05) → worst DMPC generalisation (6723x).
 > Transformer-K has 100x worse synthetic MSE but 4000x better DMPC robustness.*
 
+4. **Leaderboard figure built and committed** — two-panel horizontal bar chart
+   (synthetic MSE vs. DMPC gen_ratio, log scale, sorted by synthetic MSE to show
+   rank inversion). Saved as `paper5_Transformer_CARS/paper5_leaderboard.pdf/.png`.
+   Journal-ready caption written. Commit `fac2e6a`.
+
+5. **Public/private split confirmed** — `paper5_Transformer_CARS/` (notebook +
+   figure) is correctly public; supervisor already has the repo link. Raw
+   experimental CSVs and benchmark numbers stay gitignored until Vartiainen sign-off.
+
 #### Next steps (carry forward)
 
-- [ ] Build leaderboard artifact / figure for Paper 5
+- [x] Build leaderboard figure for Paper 5  *(done — fac2e6a)*
 - [ ] Investigate SpecNet-Full checkpoint validity
 - [ ] Get Vartiainen sign-off for experimental data public release
 - [ ] Add multiple seeds to benchmark for statistical claims
