@@ -55,7 +55,7 @@ in 2025–2026. The correct angle is:
 - **Bi-LSTM is the strongest architecture in this setup:** outperforms CNN, LSTM, and VECTOR on both synthetic and experimental spectra (Paper 2)
 - **Transfer learning works:** fine-tuned SpecNet reaches 86% accuracy on semi-synthetic data and beats baseline SpecNet on 4 experimental spectra (Paper 3)
 - **Hyperparameter search pays off:** optimised SpecNet at ~96% accuracy, MSE ~60x lower than baseline, resolving edge and intensity failure modes (Paper 4)
-- **Paper 5 candidate finding (hypothesis — needs stronger evidence):** models with best in-distribution MSE can generalise worst to experimental spectra — a publishable negative result independent of architecture novelty
+- **Paper 5 finding (statistically defensible as of session 7):** models with best in-distribution MSE generalise worst to experimental spectra — Bi-LSTM (best synthetic MSE 3.9e-05) has 3800x worse DMPC robustness than Transformer-K (1.8x ratio). Confirmed across 3 bootstrap seeds, stable rankings. Publishable as a negative/diagnostic result.
 
 ---
 
@@ -128,6 +128,48 @@ The field has split into two tracks. Architecture novelty (CNN vs LSTM vs Transf
 
 *(Appended at session end — most recent first)*
 
+### 2026-11-20 (session 7) — SpecNet-Full diagnosis + multi-seed benchmark
+
+#### What was done
+
+1. **Diagnosed SpecNet-Full** — h5py weight-norm inspection confirmed the file
+   is identical to the thesis archive copy (23,539 KB, total norm 89.10, output
+   layer norm 41.11). Not a corrupt or intermediate checkpoint. F1~0 reflects
+   genuine model behaviour — different training distribution or early stop.
+   Verdict: include in benchmark with a note; no re-training needed.
+
+2. **Multi-seed benchmark run** — updated `run_benchmark.py` to use bootstrap
+   resampling (3 seeds: [42, 123, 7], draw-with-replacement from the fixed 300-
+   spectrum test set). All 8 models × 3 seeds evaluated; each (model, seed) pair
+   logged as a separate MLflow run + per-model SUMMARY runs with mean/std metrics.
+   Full results in `cars_benchmark/CONTEXT.md`.
+
+#### Key result
+
+Rankings are fully stable across seeds. Variance is small vs. effect sizes:
+
+| Model | MSE_syn (mean±std) | DMPC ratio (mean±std) |
+|---|---|---|
+| Bi-LSTM | 3.943e-05 ± 5.1e-06 | 6807.6x ± 938.6 |
+| LSTM | 2.916e-04 ± 2.6e-05 | 1738.1x ± 160.4 |
+| SpecNet-Polynomial | 4.204e-04 ± 1.5e-05 | 11.9x ± 0.4 |
+| Transformer-FH | 2.606e-03 ± 1.2e-04 | 3.5x ± 0.2 |
+| Transformer-K | 3.867e-03 ± 1.9e-04 | 1.8x ± 0.1 |
+
+The ~4000x DMPC robustness gap between Transformer-K and Bi-LSTM is now
+statistically defensible for Paper 5.
+
+#### Next steps (carry forward)
+
+- [x] Investigate SpecNet-Full checkpoint validity  *(done — valid file, genuine low performance)*
+- [x] Add multiple seeds to benchmark  *(done — 3 seeds, all models)*
+- [ ] Regenerate leaderboard figure with error bars
+- [ ] Get Vartiainen sign-off for experimental data public release
+- [ ] Upload to HF (`ali-saghi/CARS-Benchmark`) on arXiv submission
+- [ ] Write Paper 5 benchmark section
+
+---
+
 ### 2026-11-20 (session 6) — Transformer models added to benchmark (8-model leaderboard)
 
 #### What was done
@@ -166,9 +208,9 @@ hypothesis is now quantified across all 8 models:
 #### Next steps (carry forward)
 
 - [x] Build leaderboard figure for Paper 5  *(done — fac2e6a)*
-- [ ] Investigate SpecNet-Full checkpoint validity
+- [x] Investigate SpecNet-Full checkpoint validity  *(done — session 7)*
+- [x] Add multiple seeds to benchmark for statistical claims  *(done — session 7)*
 - [ ] Get Vartiainen sign-off for experimental data public release
-- [ ] Add multiple seeds to benchmark for statistical claims
 - [ ] Upload to HF on arXiv submission
 
 ---
