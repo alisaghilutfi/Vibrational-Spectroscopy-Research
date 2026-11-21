@@ -24,6 +24,9 @@ Claude outputs/
 # Benchmark package — not public yet; release after Paper 5 submission
 cars_benchmark/
 
+# Transformer architecture survey — private research notes
+transformer_architectures_survey.ipynb
+
 # Experimental CARS spectra — IP/data-sharing constraints
 # Local working copies only; available on request from the original lab.
 # See experimental_data/README.md for provenance and inventory.
