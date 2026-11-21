@@ -78,6 +78,16 @@ Notebook: `Hyperoptimized_SpecNet.ipynb`
 
 ## Publications
 
+### PhD Thesis
+
+[![URN](https://img.shields.io/badge/URN-ISBN%3A978--952--412--190--3-blue)](https://urn.fi/URN:ISBN:978-952-412-190-3) [![LUT University](https://img.shields.io/badge/LUT_University-2024-brightgreen)](https://lutpub.lut.fi/handle/10024/168542)
+
+**[Deep learning for extracting Raman signal from coherent anti-Stokes Raman scattering spectrum](https://lutpub.lut.fi/handle/10024/168542)**
+Saghi, Ali — *Lappeenranta-Lahti University of Technology LUT*, December 2024
+Acta Universitatis Lappeenrantaensis, School of Engineering Science
+
+### Journal Papers
+
 | Paper | Journal | Year |
 |-------|---------|------|
 | [Effect of non-resonant background on the extraction of Raman signals from CARS spectra using deep neural networks](https://pubs.rsc.org/en/content/articlehtml/2022/ra/d2ra03983d) | *RSC Advances* | 2022 |
@@ -85,7 +95,7 @@ Notebook: `Hyperoptimized_SpecNet.ipynb`
 | [Evaluating different deep learning models for efficient extraction of Raman signals from CARS spectra](https://pubs.rsc.org/en/Content/ArticleLanding/2023/CP/D3CP01618H) | *Physical Chemistry Chemical Physics* | 2023 |
 | [On the relevance of hyperparameter optimization of convolutional neural networks for retrieving spectral signals](https://opg.optica.org/optcon/fulltext.cfm?uri=optcon-3-8-1461) | *Optics Continuum* | 2024 |
 
-Authors (all papers): Junjuri R., Saghi A., Lensu L., Vartiainen E.M.
+Authors (journal papers): Junjuri R., Saghi A., Lensu L., Vartiainen E.M.
 Full publication list: [Google Scholar — Ali Saghi](https://scholar.google.com/citations?user=GcWhnFcAAAAJ&hl=en)
 
 ---
