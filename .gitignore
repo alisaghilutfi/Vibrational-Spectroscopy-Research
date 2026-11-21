@@ -25,7 +25,7 @@ Claude outputs/
 cars_benchmark/
 
 # Transformer architecture survey — private research notes
-transformer_architectures_survey.ipynb
+transformer_research/
 
 # Experimental CARS spectra — IP/data-sharing constraints
 # Local working copies only; available on request from the original lab.
